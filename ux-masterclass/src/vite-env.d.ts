@@ -1,0 +1,8 @@
+/// <reference types="vite/client" />
+
+declare module "@fontsource-variable/geist";
+declare module "@fontsource/inter/300.css";
+declare module "@fontsource/inter/400.css";
+declare module "@fontsource/inter/500.css";
+declare module "@fontsource/inter/600.css";
+declare module "@fontsource/inter/700.css";
