@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
-import { existsSync, readFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
@@ -8,7 +8,27 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const root = join(__dirname, "..");
 const dist = join(root, "dist");
 const port = 4173;
-const pdfPath = join(dist, "UX-Masterclass-Deck.pdf");
+const pdfPath = join(root, "public", "UX-Masterclass-Deck.pdf");
+const logPath = join(root, ".cursor", "debug-02ec83.log");
+
+function debugLog(message, data, hypothesisId) {
+  const entry = {
+    sessionId: "02ec83",
+    runId: process.env.DEBUG_RUN_ID ?? "export",
+    hypothesisId,
+    location: "scripts/export-pdf.mjs",
+    message,
+    data,
+    timestamp: Date.now(),
+  };
+  // #region agent log
+  try {
+    appendFileSync(logPath, `${JSON.stringify(entry)}\n`);
+  } catch {
+    /* ignore */
+  }
+  // #endregion
+}
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -53,7 +73,18 @@ if (!existsSync(join(dist, "index.html"))) {
 }
 
 const server = await startStaticServer();
-const browser = await chromium.launch();
+debugLog("Static server started", { port, dist }, "B");
+
+let browser;
+try {
+  browser = await chromium.launch();
+  debugLog("Chromium launched", { platform: process.platform }, "B");
+} catch (error) {
+  debugLog("Chromium launch failed", { error: String(error) }, "A");
+  server.close();
+  throw error;
+}
+
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 
 try {
@@ -62,6 +93,8 @@ try {
     timeout: 120_000,
   });
   await page.waitForSelector(".slide-stage", { timeout: 30_000 });
+  const slideCount = await page.locator(".slide-stage").count();
+  debugLog("Slides rendered", { slideCount }, "C");
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(1500);
 
@@ -74,6 +107,7 @@ try {
   });
 
   console.log(`Exported ${pdfPath}`);
+  debugLog("PDF exported", { pdfPath, slideCount }, "C");
 } finally {
   await browser.close();
   server.close();
