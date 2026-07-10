@@ -11,6 +11,7 @@ import { Exercise } from "./slides/Exercise";
 import { Reference } from "./slides/Reference";
 import { Facilitator } from "./slides/Facilitator";
 import { Wrap } from "./slides/Wrap";
+import { PreCourseAssessment } from "./slides/PreCourseAssessment";
 
 export function SlideRenderer({ slide }: { slide: DeckSlide }) {
   switch (slide.type) {
@@ -166,6 +167,23 @@ export function SlideRenderer({ slide }: { slide: DeckSlide }) {
           title={slide.title}
           cards={slide.cards}
           next={slide.next}
+        />
+      );
+    case "preCourseAssessment":
+      return (
+        <PreCourseAssessment
+          day={slide.day}
+          session={slide.session}
+          sessionTitle={slide.sessionTitle}
+          page={slide.page}
+          eyebrow={slide.eyebrow}
+          title={slide.title}
+          intro={slide.intro}
+          bullets={slide.bullets}
+          duration={slide.duration}
+          formUrl={slide.formUrl}
+          qrImage={slide.qrImage}
+          footnote={slide.footnote}
         />
       );
     default:

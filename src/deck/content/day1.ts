@@ -14,7 +14,7 @@ export const day1: Slide[] = [
     "S4 · FigJam Workshop  2:15 - 3:00",
   ] },
 
-// ══ DAY 1 · WELCOME & ORIENTATION (6) ═══════════════════════════
+// ══ DAY 1 · WELCOME & ORIENTATION (7) ═══════════════════════════
 { type: "cover", day: 1, session: 1, time: "9:00 - 3:00",
   title: "Welcome to the\n{hl}UX Masterclass{/hl}",
   subtitle: "Riyadh, July 2026 · Five days of practitioner-focused UX" },
@@ -53,6 +53,20 @@ export const day1: Slide[] = [
   label: "Round the Room",
   question: "Your name, your role, and {hl}one thing you want to leave with{/hl} after this week",
   hint: "60 seconds each · facilitator notes themes on FigJam for the week" },
+
+{ type: "preCourseAssessment", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
+  eyebrow: "Pre-Course Assessment",
+  title: "Help Us Calibrate\nthe Week Ahead",
+  intro: "Before we dive in, take a few minutes to complete a short multiple-choice assessment. Your responses help me understand where this cohort is strong and where we should go deeper.",
+  bullets: [
+    "12 multiple-choice questions — no right or wrong answers",
+    "Takes approximately 5 minutes on your phone or laptop",
+    "Covers UX fundamentals, research methods, and AI tool familiarity",
+    "Results shape today's pace and which topics get more depth",
+  ],
+  duration: "~5 minutes",
+  formUrl: "https://forms.gle/PLACEHOLDER",
+  footnote: "Complete now, before Session 2. Responses are anonymous and used only to calibrate this cohort's pace." },
 
 { type: "theory", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
   eyebrow: "Built for This Cohort",

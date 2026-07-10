@@ -101,6 +101,17 @@ export type ManifestSlide =
       title: string;
       cards: { n: string; t: string; b: string }[];
       next: string;
+    })
+  | (SessionMeta & {
+      type: "preCourseAssessment";
+      eyebrow: string;
+      title: string;
+      intro: string;
+      bullets: string[];
+      duration: string;
+      formUrl: string;
+      qrImage?: string;
+      footnote?: string;
     });
 
 export type ToolKey = "figma" | "figjam" | "claude" | "perplexity";

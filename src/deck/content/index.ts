@@ -12,8 +12,7 @@ const raw: Slide[] = [...day1, ...day2, ...day3, ...day4, ...day5];
 
 export const deck: DeckSlide[] = raw.map((s, i) => ({ ...s, page: i + 1 }) as DeckSlide);
 
-// Sanity check: expect 194 slides (world-class 5-day rebalance: cut known content,
-// redistributed AI workflow / accessibility / privacy / governance across every day).
-if (deck.length !== 194) {
-  console.warn(`Deck length is ${deck.length}, expected 194.`);
+// Sanity check: expect 195 slides (world-class 5-day rebalance + pre-course assessment slide).
+if (deck.length !== 195) {
+  console.warn(`Deck length is ${deck.length}, expected 195.`);
 }
