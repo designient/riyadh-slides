@@ -65,6 +65,7 @@ export const day1: Slide[] = [
     "Results shape today's pace and which topics get more depth",
   ],
   duration: "~5 minutes",
+  qrImage: "/pre-assessment-qr.JPG",
   footnote: "Complete now, before Session 2. Responses are recorded by our team and shared internally with SDAIA managers and Sameer Ul Haque to calibrate the programme." },
 
 { type: "theory", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
