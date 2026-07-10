@@ -9,29 +9,19 @@ export const day5: Slide[] = [
   theme:"Systematise it, ship it, tell its story",
   sessions:[
     "S1 · Atomic Design + Components  9:00 - 10:30",
-    "S2 · Dev Handoff + Sharing  10:40 - 12:30",
-    "S3 · Portfolio + Capstone I  1:30 - 3:30",
-    "S4 · Capstone II + Wrap  3:40 - 5:00",
+    "S2 · Dev Handoff + Sharing  10:45 - 12:15",
+    "S3 · Portfolio + Capstone I  1:00 - 2:15",
+    "S4 · Capstone II + Wrap  2:15 - 3:00",
   ] },
 
-// ══ DAY 5 · S1 · Atomic Design + Components (13) ═════════════════
+// ══ DAY 5 · S1 · Atomic Design + Components (9) ══════════════════
 { type:"cover", day:5, session:1, time:"9:00 - 10:30",
   title:"Atomic Design\n+ {hl}Components{/hl}",
-  subtitle:"Atoms to Pages · Properties · Variants" },
+  subtitle:"Atoms to Pages, in One Slide · Properties · Variants" },
 
 { type:"statement", day:5, session:1, sessionTitle:"Atomic Design + Components",
   quote:"\"We are not designing pages.\nWe are designing {hl}systems of components.{/hl}\"",
   attribution:"Brad Frost · Atomic Design" },
-
-{ type:"theory", day:5, session:1, sessionTitle:"Atomic Design + Components",
-  eyebrow:"The Mental Model", title:"What Atomic Design Is",
-  layout:"bullets",
-  body:[
-    "<b>Atomic Design, by Brad Frost, borrows from chemistry:</b> complex interfaces are built from small, combinable parts.",
-    "Five levels, smallest to largest: <em>atoms, molecules, organisms, templates, pages.</em> Each is made from the level below.",
-    "It gives a team a <b>shared vocabulary</b> and a logical way to build and name a design system that scales.",
-    "It's the conceptual backbone behind Figma's components, and behind how this very slide system was built.",
-  ] },
 
 { type:"framework", day:5, session:1, sessionTitle:"Atomic Design + Components",
   eyebrow:"The Five Levels", title:"Atoms to Pages",
@@ -43,18 +33,7 @@ export const day5: Slide[] = [
     { t:"Templates", d:"Organisms arranged into a page-level structure, without real content yet." },
     { t:"Pages", d:"Templates filled with real content. The actual screen a user sees." },
   ] },
-  note:"Each level is composed of the one beneath it. Fix an atom and every molecule, organism, and page inherits the fix." },
-
-{ type:"example", day:5, session:1, sessionTitle:"Atomic Design + Components",
-  eyebrow:"Made Concrete", title:"Atomic Design · A Worked Example",
-  mode:"annotated",
-  panels:[
-    { l:"Atom", t:"<b>A single input field and a button,</b> each on its own, styled from your tokens." },
-    { l:"Molecule", t:"<b>Combine them into a search bar:</b> input plus button, working as one unit." },
-    { l:"Organism", t:"<b>The search bar joins a logo and nav links</b> to form a complete header." },
-    { l:"Template to Page", t:"<b>The header tops a page template,</b> then real content fills it into a finished screen." },
-  ],
-  takeaway:"You already did this on Day 3. The card was a molecule, built from atoms, ready to become an organism." },
+  note:"Brad Frost's model, borrowed from chemistry: complex interfaces are small, combinable parts. Each level is composed of the one beneath it — fix an atom and every molecule, organism, and page inherits the fix." },
 
 { type:"theory", day:5, session:1, sessionTitle:"Atomic Design + Components",
   eyebrow:"The Figma Tool", title:"Components + Instances",
@@ -70,23 +49,12 @@ export const day5: Slide[] = [
   } },
 
 { type:"theory", day:5, session:1, sessionTitle:"Atomic Design + Components",
-  eyebrow:"Making Components Flexible", title:"Component Properties",
-  layout:"cards4",
-  body:[
-    { icon:"boolean", t:"Boolean", b:"Toggle a part on or off. Show or hide an icon, a badge, a label, from one switch." },
-    { icon:"variables", t:"Text", b:"Expose editable text as a property. Change the label without entering the instance." },
-    { icon:"states", t:"Instance swap", b:"Swap a nested component. Change which icon a button uses, from a dropdown." },
-    { icon:"system", t:"Variant", b:"Switch between predefined versions, size, state, style, in one property." },
-  ],
-  footnote:"Properties turn a rigid component into a flexible one configured entirely from the right-hand panel." },
-
-{ type:"theory", day:5, session:1, sessionTitle:"Atomic Design + Components",
-  eyebrow:"The Power Feature", title:"Variants",
+  eyebrow:"Making Components Flexible", title:"Component Properties + Variants",
   layout:"bullets",
   body:[
     "<b>Variants group related versions of a component</b> into one, with properties to switch between them.",
     "A button's variants: <em>primary, secondary, ghost</em> times <em>default, hover, disabled.</em> One component, every combination.",
-    "Instead of twelve separate button components cluttering your assets, you have <b>one, configured by properties.</b>",
+    "<b>Boolean, text, and instance-swap properties</b> turn a rigid component into a flexible one configured from the right-hand panel.",
     "This is how the six button states from Day 4 live together cleanly, as variants of a single component.",
   ] },
 
@@ -101,29 +69,16 @@ export const day5: Slide[] = [
   ],
   takeaway:"This is the difference between a pile of buttons and a button system. Variants make it manageable." },
 
-{ type:"theory", day:5, session:1, sessionTitle:"Atomic Design + Components",
-  eyebrow:"Editing the Master", title:"Edit Object Mode",
-  layout:"split",
-  body:{
-    left:[
-      "<b>To change a component everywhere, edit the master,</b> not an instance. Double-click into the main component to edit it.",
-      "Edits to the master <em>propagate to every instance</em> across every file using the library, instantly.",
-      "Edit an instance instead and you create a local override, which only affects that one copy. Know which you're doing.",
-    ],
-    right:{ tone:"navy", t:"The discipline",
-      b:"Master edits flow everywhere. Instance edits stay local. The most common Figma mistake is editing an instance when you meant the master, then wondering why the rest didn't update. Always know which you're in." },
-  } },
-
 { type:"toolOpen", day:5, session:1, sessionTitle:"Atomic Design + Components",
   eyebrow:"Hands On", title:"Componentise Your Card",
   tool:"figma",
   instruction:"Turn your Day 3 card into a component with variants",
-  sub:"Make the master, add a variant or two, then place instances. This is your case study's first real component.",
+  sub:"Make the master, add a variant or two, then place instances. This is your cohort's shared challenge getting its first real component.",
   need:["Your card from Day 3","Your variables","Shortcut: Cmd/Ctrl + Alt + K to create component"] },
 
 { type:"exercise", day:5, session:1, tool:"figma",
   task:"Build a {hl}Component System{/hl}",
-  sub:"Make your card a component. Add a button component with two variants. Place instances and override content.",
+  sub:"Make your card a component. Add a button component with two variants. Place instances and override content, for your cohort's shared challenge.",
   minutes:30,
   deliverable:"A card component and a two-variant button, used as instances in your design." },
 
@@ -134,22 +89,12 @@ export const day5: Slide[] = [
     { n:"02", t:"Components are atomic design, realised", b:"Master and instances, linked. Change the master, every instance updates. The biggest consistency and speed win in Figma." },
     { n:"03", t:"Properties and variants make it flexible", b:"One button component holds every type and state as variants, configured from the panel. A system, not a pile of duplicates." },
   ],
-  next:"S2 · Dev Handoff + Sharing (10:40) · Turn your system into something a developer can build from." },
+  next:"S2 · Dev Handoff + Sharing (10:45) · Turn your system into something a developer can build from." },
 
-// ══ DAY 5 · S2 · Dev Handoff + Sharing (8) ═══════════════════════
-{ type:"cover", day:5, session:2, time:"10:40 - 12:30",
+// ══ DAY 5 · S2 · Dev Handoff + Sharing (7) ═══════════════════════
+{ type:"cover", day:5, session:2, time:"10:45 - 12:15",
   title:"Dev Handoff\n+ {hl}Sharing{/hl}",
-  subtitle:"Dev Mode · Inspect · Export · Version History" },
-
-{ type:"theory", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
-  eyebrow:"The Critical Bridge", title:"What Handoff Really Is",
-  layout:"bullets",
-  body:[
-    "<b>Handoff is where design becomes product.</b> A beautiful file that a developer can't build from has failed at the last step.",
-    "It's <em>not throwing a file over the wall.</em> It's a conversation: specs, intent, edge cases, and the states you designed.",
-    "Good handoff answers the developer's questions <b>before they ask them:</b> spacing, colour, behaviour, and what happens when things go wrong.",
-    "Everything you built, variables, components, states, was quietly preparing for this moment. A systematised file hands off cleanly.",
-  ] },
+  subtitle:"Handoff Is a Conversation, Not a File Thrown Over a Wall" },
 
 { type:"theory", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
   eyebrow:"The Handoff Tool", title:"Figma Dev Mode",
@@ -172,15 +117,6 @@ export const day5: Slide[] = [
   ] },
 
 { type:"theory", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
-  eyebrow:"Getting Assets Out", title:"Exporting + Asset Settings",
-  layout:"cards2",
-  body:[
-    { tone:"gold", t:"Export settings", b:"Set any layer to export as PNG, JPG, SVG, or PDF, at multiple resolutions at once. Icons and illustrations go out as SVG, sharp at any size." },
-    { tone:"navy", t:"Naming and slices", b:"Name exports clearly and use slices for precise regions. Tidy, well-named assets save the developer hours and prevent the wrong file shipping." },
-  ],
-  footnote:"Export discipline mirrors layer discipline. A messy file exports messy assets." },
-
-{ type:"theory", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
   eyebrow:"Collaboration + Safety", title:"Version History + Sharing",
   layout:"bullets",
   body:[
@@ -192,21 +128,31 @@ export const day5: Slide[] = [
 
 { type:"exercise", day:5, session:2, tool:"figma",
   task:"Prepare a {hl}Handoff{/hl}",
-  sub:"Open your design in Dev Mode. Mark a frame ready for dev. Set up an SVG export for one icon. Add a spec comment.",
+  sub:"Open your cohort's shared-challenge design in Dev Mode. Mark a frame ready for dev. Set up an SVG export for one icon. Add a spec comment.",
   minutes:25,
   deliverable:"One frame marked dev-ready, one asset export configured, one clarifying comment pinned." },
+
+{ type:"theory", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
+  eyebrow:"Career ROI", title:"Presenting Responsible Design in Interviews",
+  layout:"bullets",
+  body:[
+    "<b>\"I ran an accessibility audit\" is a stronger sentence than \"I designed the screens.\"</b> It signals judgement, not just output.",
+    "Narrate the <em>decision, not just the deliverable:</em> \"I flagged that the AI-generated draft failed contrast on this screen, and here's the fix I shipped.\"",
+    "For AI-assisted work, always name <b>what you verified, not just what the tool produced.</b> \"AI drafted three variants, I checked each against the token system and picked this one\" beats \"AI made this.\"",
+    "Interviewers in 2026 actively probe for this. Being able to talk fluently about accessibility and responsible-AI decisions is a real differentiator, not a nice-to-have.",
+  ] },
 
 { type:"wrap", day:5, session:2, sessionTitle:"Dev Handoff + Sharing",
   eyebrow:"Session 2 Complete", title:"Three Things to Take Into S3",
   cards:[
     { n:"01", t:"Handoff is a conversation", b:"Not a file thrown over a wall. It answers the developer's questions before they ask: specs, states, behaviour, and edge cases." },
     { n:"02", t:"Dev Mode pays off your system", b:"Inspect gives exact specs and code. Your variables arrive as the same named tokens the developer ships. Design and build speak one language." },
-    { n:"03", t:"Version history and comments protect the work", b:"Roll back anytime, share with the right permissions, and keep feedback pinned to the exact element. One platform from first sticky to handoff." },
+    { n:"03", t:"You can narrate the judgement, not just the output", b:"Naming what you verified in AI-assisted work and why you flagged an accessibility gap is what separates a strong interview answer from a weak one." },
   ],
-  next:"S3 · Portfolio + Capstone I (1:30) · Now we turn this week's work into a story that gets you hired." },
+  next:"S3 · Portfolio + Capstone I (1:00) · Now we turn this week's work into a story that gets you hired." },
 
-// ══ DAY 5 · S3 · Portfolio + Capstone I (13) ═════════════════════
-{ type:"cover", day:5, session:3, time:"1:30 - 3:30",
+// ══ DAY 5 · S3 · Portfolio + Capstone I (12) ═════════════════════
+{ type:"cover", day:5, session:3, time:"1:00 - 2:15",
   title:"Portfolio\n+ {hl}Capstone I{/hl}",
   subtitle:"The Case Study Narrative · Building Your Story" },
 
@@ -245,35 +191,53 @@ export const day5: Slide[] = [
   ],
   footnote:"For every screen you show, answer one question: why is it like this and not otherwise?" },
 
-{ type:"theory", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
-  eyebrow:"Telling It Well", title:"Portfolio Storytelling Principles",
-  layout:"bullets",
-  body:[
-    "<b>Lead with the outcome or the insight,</b> not a long preamble. Hook the reader in the first screenful.",
-    "<b>Be honest about constraints and failures.</b> \"This didn't work, so I changed it\" reads as maturity, not weakness.",
-    "<b>Show the messy middle:</b> sketches, rejected ideas, test findings. Process artefacts prove the thinking is real.",
-    "<b>Quantify where you can,</b> qualify where you can't. \"Cut drop-off\" is good. \"Cut drop-off by a third\" is better.",
-  ] },
+{ type:"example", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
+  eyebrow:"Weak vs Strong · Responsible Design", title:"The Same Project, Told Two Ways",
+  mode:"split",
+  panels:{
+    negative:{ heading:"Weak · accessibility as afterthought", items:[
+      { l:"Narrative", t:"\"I designed the citizen portal, ran usability tests, and shipped a clean, modern interface.\"" },
+      { l:"What's missing", t:"<b>No mention of who was excluded,</b> what was checked, or what AI-assisted decisions were verified." },
+      { l:"Reviewer read", t:"<b>Competent execution, no visible judgement.</b> Indistinguishable from a hundred other portfolios." },
+    ]},
+    positive:{ heading:"Strong · accessibility foregrounded", items:[
+      { l:"Narrative", t:"\"I audited the flow against WCAG, found three contrast failures the AI-generated draft introduced, and fixed them before this became the final design.\"" },
+      { l:"What's shown", t:"<b>The specific gap, the specific fix, and the AI-governance check</b> that caught it before it shipped." },
+      { l:"Reviewer read", t:"<b>This person catches what others miss.</b> Immediately memorable, immediately hireable." },
+    ]},
+  },
+  takeaway:"Same project, same screens. The difference is entirely in whether accessibility and governance work gets narrated or buried." },
 
 { type:"theory", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
   eyebrow:"You Already Have One", title:"Your Week Is a Case Study",
   layout:"split",
   body:{
     left:[
-      "<b>You've unknowingly built a full case study this week,</b> following the exact arc that gets people hired.",
-      "Problem and research: <em>Day 1 and 2.</em> Insight: your JTBD and synthesis. Decisions: your wireframes, prototype, and tests.",
-      "Outcome: your usability findings and what you'd do next. <b>It's all there, in your Figma and FigJam files.</b>",
+      "<b>You've built a full case study this week,</b> following the exact arc that gets people hired.",
+      "Problem and research: <em>Day 1 and 2.</em> Insight: your JTBD and synthesis. Decisions: your wireframes, governed prototype, and accessibility fixes.",
+      "Outcome: your governance checklist and what you'd test next. <b>It's all there, in your Figma and FigJam files.</b>",
     ],
     right:{ tone:"gold", t:"The capstone",
-      b:"For the rest of today, you assemble this week's work into one portfolio case study. Problem, research, insight, decisions, outcome. By 5pm tomorrow you walk out with a real, presentable project, not just notes." },
+      b:"For the rest of today, you assemble this week's work into one portfolio case study. Problem, research, insight, decisions, outcome. By 3pm you walk out with a real, presentable project." },
   } },
+
+{ type:"framework", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
+  eyebrow:"How You'll Be Scored", title:"Capstone Scoring Rubric",
+  kind:"stack",
+  data:{ layers:[
+    { t:"Design quality", d:"Visual hierarchy, consistency, component craft. Does the output look intentional and on-system?" },
+    { t:"Process rigor", d:"Research traceable to decisions. Case study arc complete. AI outputs reviewed, not shipped raw." },
+    { t:"Accessibility", d:"Contrast, focus, labels, touch targets applied. Day 1 inclusion gaps addressed. Checklist evidence." },
+    { t:"AI-governance awareness", d:"Risk classified, checklist completed, data handling considered. Governance documented, not assumed." },
+  ] },
+  note:"All four dimensions count. A beautiful screen with no governance documentation scores lower than an honest process story." },
 
 { type:"toolOpen", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
   eyebrow:"Hands On", title:"Open a Fresh Figma Page",
   tool:"figma",
   instruction:"Create a page named Case Study",
   sub:"We'll lay out your week as a five-section narrative: problem, research, insight, decisions, outcome.",
-  need:["All your files from Days 1 to 4","Your research, persona, and test findings","The case study arc"] },
+  need:["All your files from Days 1 to 4","Your research, persona, and governance checklist","The case study arc"] },
 
 { type:"exercise", day:5, session:3, tool:"figma",
   task:"Capstone I · {hl}Structure Your Story{/hl}",
@@ -281,59 +245,59 @@ export const day5: Slide[] = [
   minutes:35,
   deliverable:"A five-section case study skeleton with your best artefact and a caption in each." },
 
-{ type:"discussion", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
-  label:"The Insight Test",
-  question:"In one sentence:\nwhat was the {hl}key insight{/hl}\nthat shaped your design this week?",
-  hint:"If you can't say it in a sentence, the case study isn't focused yet. 2 minutes." },
-
-{ type:"theory", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
-  eyebrow:"Common Mistakes", title:"What Sinks a Portfolio",
-  layout:"cards3",
-  body:[
-    { icon:"warn", t:"All output, no thinking", b:"Screens with no story. The reviewer can't tell whether you decided anything or just decorated." },
-    { icon:"warn", t:"Too long, no hierarchy", tone:"navy", b:"A wall of text and images with no lead, no structure. The reader bounces before the good part." },
-    { icon:"warn", t:"No outcome or reflection", b:"It ends at the final screen. No results, no learnings, no sense that you'd grow from it." },
-  ],
-  footnote:"Avoid these three and you're ahead of most portfolios reviewers see all day." },
-
 { type:"reference", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
-  eyebrow:"Reference · Keep This Open", title:"The Case Study Checklist",
-  head:["Section","Must Answer","Common Failure"],
+  eyebrow:"Quick Reference · Keep This Open", title:"Portfolio + Presentation Coaching",
+  head:["Do","Don't"],
   rows:[
-    ["Problem","What was wrong, for whom, why it mattered","Starting with the solution, no stakes set"],
-    ["Research","What you did and what you found","Listing methods with no findings"],
-    ["Insight","The realisation that changed direction","No turning point, just a project log"],
-    ["Decisions","What you designed and why","Showing screens without the reasoning"],
-    ["Outcome","Results, learnings, what's next","Ending at the final screen, no reflection"],
-    ["Story","Leads with insight, honest about constraints","A wall of text with no hierarchy or hook"],
+    ["Lead with the insight or outcome","Start with a long preamble"],
+    ["Show the messy middle — sketches, rejected ideas","Show only final polished screens"],
+    ["Be honest about constraints and failures","Present only successes"],
+    ["Quantify where you can, qualify where you can't","Make unverifiable claims"],
+    ["60-second walkthrough: problem → insight → decision → outcome","Screen-by-screen tour with no story"],
+    ["Include accessibility and governance in your narrative","Treat responsible design as an afterthought"],
   ],
-  note:"If a section can't answer its question, that's the part of your case study to rework first." },
+  note:"If cohort size is above ~12–15, confirm timing with your facilitator before the S4 presentations." },
 
 { type:"wrap", day:5, session:3, sessionTitle:"Portfolio + Capstone I",
   eyebrow:"Session 3 Complete", title:"Three Things to Take Into S4",
   cards:[
     { n:"01", t:"A portfolio sells thinking", b:"Case studies, not galleries. Reviewers scan for reasoning and judgement in seconds. One deep story beats ten thin ones." },
     { n:"02", t:"The arc is problem to outcome", b:"Problem, research, insight, decisions, outcome. Lead with the insight. For every screen, answer why it is the way it is." },
-    { n:"03", t:"You already have the case study", b:"This whole week followed the arc. Your files hold the problem, research, insight, decisions, and outcome. Now you assemble it." },
+    { n:"03", t:"Four dimensions, one story", b:"Design quality, process rigor, accessibility, and AI-governance awareness. Your case study must show all four." },
   ],
-  next:"S4 · Capstone II + Wrap (3:40) · Finish the story, present it, and close the masterclass." },
+  next:"S4 · Capstone II + Wrap (2:15) · Finish the story, present it, and close the masterclass." },
 
-// ══ DAY 5 · S4 · Capstone II + Wrap (5) ══════════════════════════
-{ type:"cover", day:5, session:4, time:"3:40 - 5:00",
+// ══ DAY 5 · S4 · Capstone II + Wrap (6) ══════════════════════════
+{ type:"cover", day:5, session:4, time:"2:15 - 3:00",
   title:"Capstone II\n+ {hl}Wrap{/hl}",
   subtitle:"Finish · Present · Where You Go Next" },
 
 { type:"exercise", day:5, session:4, tool:"figma",
   task:"Capstone II · {hl}Finish + Polish{/hl}",
-  sub:"Complete your case study. Tighten captions, apply the design principles, make the narrative flow start to finish.",
-  minutes:35,
+  sub:"Complete your case study on your cohort's shared challenge. Tighten captions, apply the design principles, make the narrative flow start to finish — and make sure accessibility and AI-governance decisions are visible, not buried.",
+  minutes:25,
   deliverable:"A complete, presentable case study: problem to outcome, with your artefacts and your reasoning." },
 
 { type:"exercise", day:5, session:4, tool:"figjam",
-  task:"Present in {hl}90 Seconds{/hl}",
-  sub:"Pair up. Walk your partner through your case study in 90 seconds: problem, insight, decision, outcome.",
-  minutes:20,
-  deliverable:"A 90-second spoken walkthrough of your case study. Practice the story you'll tell in interviews." },
+  task:"Present in {hl}60 Seconds{/hl}",
+  sub:"Pair up. Walk your partner through your case study in 60 seconds: problem, insight, decision, outcome. If cohort is above ~12–15, confirm timing with your facilitator.",
+  minutes:15,
+  deliverable:"A 60-second spoken walkthrough of your case study. Practice the story you'll tell in interviews." },
+
+{ type:"reference", day:5, session:4, sessionTitle:"Capstone II + Wrap",
+  eyebrow:"Your End-of-Week Package", title:"Take-Home Deliverables",
+  head:["Deliverable","What It Contains"],
+  rows:[
+    ["Full case study","Problem → research → insight → decisions → outcome narrative"],
+    ["Production Figma file","Tokenised components, governed prototype, dev-ready frames"],
+    ["AI research prompt pack","5 prompts: synthesis, competitive, persona, journey map, heuristic audit"],
+    ["Interview kit","Semi-structured guide, probing techniques, neutral question examples"],
+    ["JTBD + persona worksheets","JTBD statement template, persona anatomy, empathy map"],
+    ["Usability test script","Standalone PDF — goal-based tasks, think-aloud protocol, synthesis"],
+    ["AI Ethics & Governance quick-reference","EU AI Act tiers + NIST Govern-Map-Measure-Manage checklist"],
+    ["Accessibility checklist","Designer-checkable WCAG applied reference from Day 4"],
+  ],
+  note:"Everything you need to keep practising, keep governing, and keep building after this week." },
 
 { type:"theory", day:5, session:4, sessionTitle:"Capstone II + Wrap",
   eyebrow:"Where You Go Next", title:"Your Path From Here",
@@ -343,14 +307,14 @@ export const day5: Slide[] = [
     { icon:"figma", t:"Keep the tools sharp", b:"Use Figma weekly. Rebuild interfaces you admire. Fluency comes from reps, not from courses alone." },
     { icon:"research", t:"Stay close to users", b:"Every project, talk to real people. The research habit is what separates designers from decorators long term." },
   ],
-  footnote:"You have the method, the tools, and the AI workflows. From here it's practice, projects, and people." },
+  footnote:"You have the method, the tools, the AI workflows, and the governance framework. From here it's practice, projects, and people." },
 
 { type:"wrap", day:5, session:4, sessionTitle:"Capstone II + Wrap",
   eyebrow:"Masterclass Complete", title:"Five Days. One Complete Designer.",
   cards:[
-    { n:"01", t:"You can run the full process", b:"Research, JTBD, synthesis with AI, wireframes, prototypes, usability testing, handoff. The entire arc, end to end, with judgement at every step." },
-    { n:"02", t:"You think and build in systems", b:"Heuristics and principles as your lens. Tokens, components, variants, and atomic design as your craft. Figma fluency throughout." },
-    { n:"03", t:"You have a story to tell", b:"A complete, portfolio-ready case study and the narrative to present it. You leave with proof, not just knowledge." },
+    { n:"01", t:"You can run the full process", b:"Research, JTBD, synthesis with AI, design systems, governed prototyping, accessibility, and handoff. The entire arc, end to end, with judgement at every step." },
+    { n:"02", t:"You design responsibly", b:"Accessibility applied, AI governance documented, data privacy considered. Not retrofitted — built into the process from Day 1." },
+    { n:"03", t:"You leave with proof", b:"A complete case study, a full deliverable package, and a 60-second story to tell. Knowledge turned into artefacts." },
   ],
   next:"Thank you. Your certificate is at designient.com/verify. Now go build, talk to users, and tell the story." },
 

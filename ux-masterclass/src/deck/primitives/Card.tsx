@@ -4,6 +4,8 @@ interface CardProps {
   tone?: "white" | "navy" | "gold";
   children: ReactNode;
   center?: boolean;
+  compact?: boolean;
+  className?: string;
 }
 
 const toneClasses: Record<string, string> = {
@@ -12,10 +14,16 @@ const toneClasses: Record<string, string> = {
   gold: "bg-go/10 border border-go/26 shadow-card",
 };
 
-export function Card({ tone = "white", children, center = false }: CardProps) {
+export function Card({
+  tone = "white",
+  children,
+  center = false,
+  compact = false,
+  className = "",
+}: CardProps) {
   return (
     <div
-      className={`flex flex-col rounded-card p-s5 ${toneClasses[tone]} ${center ? "justify-center" : ""}`}
+      className={`flex flex-col rounded-card ${compact ? "p-s4" : "p-s5"} ${toneClasses[tone]} ${center ? "justify-center" : ""} ${className}`}
     >
       {children}
     </div>

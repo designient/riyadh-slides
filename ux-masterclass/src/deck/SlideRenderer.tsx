@@ -9,6 +9,7 @@ import { Discussion } from "./slides/Discussion";
 import { ToolOpen } from "./slides/ToolOpen";
 import { Exercise } from "./slides/Exercise";
 import { Reference } from "./slides/Reference";
+import { Facilitator } from "./slides/Facilitator";
 import { Wrap } from "./slides/Wrap";
 
 export function SlideRenderer({ slide }: { slide: DeckSlide }) {
@@ -137,6 +138,21 @@ export function SlideRenderer({ slide }: { slide: DeckSlide }) {
           head={slide.head}
           rows={slide.rows}
           note={slide.note}
+        />
+      );
+    case "facilitator":
+      return (
+        <Facilitator
+          day={slide.day}
+          session={slide.session}
+          sessionTitle={slide.sessionTitle}
+          page={slide.page}
+          eyebrow={slide.eyebrow}
+          name={slide.name}
+          tagline={slide.tagline}
+          bio={slide.bio}
+          stats={slide.stats}
+          photo={slide.photo}
         />
       );
     case "wrap":

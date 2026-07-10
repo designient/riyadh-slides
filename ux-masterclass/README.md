@@ -1,6 +1,6 @@
 # UX Masterclass Slide Deck
 
-A 247-slide presentation deck for the 5-day UX/UI Design Masterclass (Riyadh, July 2026).
+A 194-slide presentation deck for the 5-day UX/UI Design Masterclass (Riyadh, July 2026).
 
 Built with **Vite + React + TypeScript + Tailwind CSS** per the spec in `../UX_Masterclass_Deck_Cursor_Spec.md`.
 

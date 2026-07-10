@@ -88,16 +88,23 @@ function CompareDiagram({
 }
 
 function StackDiagram({ layers }: { layers: StackLayer[] }) {
+  const compact = layers.length >= 5;
+  const stagger = compact ? 16 : 24;
+
   return (
-    <div className="flex flex-1 flex-col justify-center gap-s3">
+    <div className={`flex min-h-0 flex-1 flex-col justify-start ${compact ? "gap-s2" : "gap-s3"}`}>
       {layers.map((layer, i) => (
         <div
           key={i}
-          className="rounded-card border border-nv/9 bg-wh px-s6 py-s4 shadow-card"
-          style={{ marginLeft: i * 24, marginRight: (layers.length - 1 - i) * 24 }}
+          className={`shrink-0 rounded-card border border-nv/9 bg-wh shadow-card ${compact ? "px-s5 py-s3" : "px-s6 py-s4"}`}
+          style={{ marginLeft: i * stagger, marginRight: (layers.length - 1 - i) * stagger }}
         >
-          <h3 className="font-display text-cardtitle font-bold text-nv">{layer.t}</h3>
-          <p className="mt-s1 text-cardbody text-t2">{layer.d}</p>
+          <h3 className={`font-display font-bold text-nv ${compact ? "text-small" : "text-cardtitle"}`}>
+            {layer.t}
+          </h3>
+          <p className={`mt-s1 text-t2 ${compact ? "text-small leading-snug" : "text-cardbody"}`}>
+            {layer.d}
+          </p>
         </div>
       ))}
     </div>
@@ -231,9 +238,9 @@ export function Framework({
     <Slide variant="light">
       <Chrome day={day} session={session} sessionTitle={sessionTitle} page={page} />
       <Header eyebrow={eyebrow} title={title} />
-      <div className="mt-s6 flex min-h-0 flex-1 flex-col">{renderKind()}</div>
+      <div className="mt-s5 flex min-h-0 flex-1 flex-col overflow-hidden">{renderKind()}</div>
       {note && (
-        <p className="mt-s4 shrink-0 text-center text-small italic text-t3">
+        <p className="mt-s3 shrink-0 text-center text-small italic text-t3">
           {parseRichText(note)}
         </p>
       )}

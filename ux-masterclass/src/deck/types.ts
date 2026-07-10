@@ -33,7 +33,7 @@ export type ManifestSlide =
       type: "theory";
       eyebrow: string;
       title: string;
-      layout: "bullets" | "cards2" | "cards3" | "cards4" | "split";
+      layout: "bullets" | "cards2" | "cards3" | "cards4" | "cards5" | "split";
       body: unknown;
       footnote?: string;
     })
@@ -85,6 +85,15 @@ export type ManifestSlide =
       head: string[];
       rows: string[][];
       note?: string;
+    })
+  | (SessionMeta & {
+      type: "facilitator";
+      eyebrow: string;
+      name: string;
+      tagline: string;
+      bio: string[];
+      stats: { value: string; label: string }[];
+      photo: string;
     })
   | (SessionMeta & {
       type: "wrap";

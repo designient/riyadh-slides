@@ -22,9 +22,16 @@ const toolIcons = {
 
 const toolBg: Record<ToolKey, string> = {
   figma: "bg-[#1E1E1E]",
-  figjam: "bg-[#9747FF]",
+  figjam: "bg-[#D4A84A]",
   claude: "bg-[#D97757]",
   perplexity: "bg-[#20808D]",
+};
+
+const toolIconColor: Record<ToolKey, string> = {
+  figma: "text-white",
+  figjam: "text-nv",
+  claude: "text-white",
+  perplexity: "text-white",
 };
 
 export function Exercise({
@@ -47,7 +54,7 @@ export function Exercise({
         <div
           className={`mb-s6 flex h-20 w-20 items-center justify-center rounded-card ${toolBg[tool]}`}
         >
-          <Icon size={40} weight="light" className="text-white" />
+          <Icon size={40} weight="light" className={toolIconColor[tool]} />
         </div>
         <p className="font-body text-eyebrow font-semibold uppercase text-gl">
           EXERCISE

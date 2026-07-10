@@ -16,10 +16,10 @@ interface ToolOpenProps extends Base {
 }
 
 const toolConfig = {
-  figma: { icon: FigmaLogo, bg: "bg-[#1E1E1E]", label: "Figma" },
-  figjam: { icon: FigmaLogo, bg: "bg-[#9747FF]", label: "FigJam" },
-  claude: { icon: Sparkle, bg: "bg-[#D97757]", label: "Claude" },
-  perplexity: { icon: Compass, bg: "bg-[#20808D]", label: "Perplexity" },
+  figma: { icon: FigmaLogo, bg: "bg-[#1E1E1E]", iconColor: "text-white", label: "Figma" },
+  figjam: { icon: FigmaLogo, bg: "bg-[#D4A84A]", iconColor: "text-nv", label: "FigJam" },
+  claude: { icon: Sparkle, bg: "bg-[#D97757]", iconColor: "text-white", label: "Claude" },
+  perplexity: { icon: Compass, bg: "bg-[#20808D]", iconColor: "text-white", label: "Perplexity" },
 } as const;
 
 export function ToolOpen({
@@ -49,7 +49,7 @@ export function ToolOpen({
             <div
               className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-card ${cfg.bg}`}
             >
-              <Icon size={32} weight="light" className="text-white" />
+              <Icon size={32} weight="light" className={cfg.iconColor} />
             </div>
             <div className="flex-1">
               <p className="font-display text-h2 font-bold text-nv">{instruction}</p>

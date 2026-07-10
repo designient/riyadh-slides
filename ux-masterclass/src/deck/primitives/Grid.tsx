@@ -14,7 +14,7 @@ const colClasses = {
 
 export function Grid({ cols, children, className = "" }: GridProps) {
   return (
-    <div className={`grid flex-1 gap-s4 ${colClasses[cols]} ${className}`}>
+    <div className={`grid gap-s4 ${colClasses[cols]} ${className}`}>
       {children}
     </div>
   );

@@ -10,7 +10,7 @@ interface BulletsProps {
 export function Bullets({ items, dark = false, size = "body" }: BulletsProps) {
   const textSize = size === "cardbody" ? "text-cardbody" : "text-body";
   return (
-    <ul className="flex flex-col gap-s3">
+    <ul className="flex flex-1 flex-col justify-around gap-s3">
       {items.map((item, i) => (
         <li key={i} className="flex gap-s3">
           <span className="mt-[11px] h-[10px] w-[10px] shrink-0 rounded-full bg-go" />

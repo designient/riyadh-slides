@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { ArrowsIn, ArrowsOut } from "@phosphor-icons/react";
 import { deck } from "./deck/content";
 import type { DeckSlide } from "./deck/types";
 import { SlideRenderer } from "./deck/SlideRenderer";
+import { AUTH_STORAGE_KEY, PasswordGate } from "./deck/PasswordGate";
 
 function useQueryParams() {
   return useMemo(() => new URLSearchParams(window.location.search), []);
@@ -33,9 +35,13 @@ export default function App() {
     [dayFilter, sessionFilter],
   );
 
+  const [authenticated, setAuthenticated] = useState(
+    () => printMode || sessionStorage.getItem(AUTH_STORAGE_KEY) === "1",
+  );
   const [index, setIndex] = useState(0);
   const [showGrid, setShowGrid] = useState(false);
   const [scale, setScale] = useState(1);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const go = useCallback(
     (delta: number) => {
@@ -43,6 +49,14 @@ export default function App() {
     },
     [slides.length],
   );
+
+  const toggleFullscreen = useCallback(() => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     if (printMode) return;
@@ -57,6 +71,13 @@ export default function App() {
 
   useEffect(() => {
     if (printMode) return;
+    const onFsChange = () => setIsFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener("fullscreenchange", onFsChange);
+    return () => document.removeEventListener("fullscreenchange", onFsChange);
+  }, [printMode]);
+
+  useEffect(() => {
+    if (printMode || !authenticated) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
@@ -68,13 +89,15 @@ export default function App() {
         window.open("?print=1", "_blank");
       } else if (e.key === "g") {
         setShowGrid((v) => !v);
+      } else if (e.key === "Enter") {
+        toggleFullscreen();
       } else if (e.key === "Escape") {
         setShowGrid(false);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, printMode]);
+  }, [go, printMode, authenticated, toggleFullscreen]);
 
   if (printMode) {
     return (
@@ -84,6 +107,10 @@ export default function App() {
         ))}
       </div>
     );
+  }
+
+  if (!authenticated) {
+    return <PasswordGate onSuccess={() => setAuthenticated(true)} />;
   }
 
   const current = slides[index];
@@ -98,13 +125,6 @@ export default function App() {
         style={{ transform: `scale(${scale})` }}
       >
         {current && <SlideRenderer slide={current} />}
-      </div>
-
-      <div className="no-print absolute bottom-6 right-6 font-body text-small text-white/50">
-        {index + 1} / {slides.length}
-        {deck.length !== 247 && (
-          <span className="ml-2 text-red-400">(deck: {deck.length})</span>
-        )}
       </div>
 
       <button
@@ -122,6 +142,16 @@ export default function App() {
         aria-label="Next slide"
       >
         →
+      </button>
+
+      <button
+        type="button"
+        className="no-print absolute right-4 top-4 flex items-center gap-2 rounded-full bg-white/10 px-4 py-3 text-white/60 hover:bg-white/20"
+        onClick={toggleFullscreen}
+        aria-label={isFullscreen ? "Exit full screen" : "Enter full screen"}
+        title={isFullscreen ? "Exit full screen (Esc)" : "Enter full screen (Enter)"}
+      >
+        {isFullscreen ? <ArrowsIn size={18} /> : <ArrowsOut size={18} />}
       </button>
 
       {showGrid && (
