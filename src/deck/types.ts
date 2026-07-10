@@ -109,7 +109,7 @@ export type ManifestSlide =
       intro: string;
       bullets: string[];
       duration: string;
-      formUrl: string;
+      formUrl?: string;
       qrImage?: string;
       footnote?: string;
     });

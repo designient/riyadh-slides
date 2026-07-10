@@ -59,14 +59,13 @@ export const day1: Slide[] = [
   title: "Help Us Calibrate\nthe Week Ahead",
   intro: "Before we dive in, take a few minutes to complete a short multiple-choice assessment. Your responses help me understand where this cohort is strong and where we should go deeper.",
   bullets: [
-    "12 multiple-choice questions — no right or wrong answers",
+    "15 multiple-choice questions — no right or wrong answers",
     "Takes approximately 5 minutes on your phone or laptop",
     "Covers UX fundamentals, research methods, and AI tool familiarity",
     "Results shape today's pace and which topics get more depth",
   ],
   duration: "~5 minutes",
-  formUrl: "https://forms.gle/PLACEHOLDER",
-  footnote: "Complete now, before Session 2. Responses are anonymous and used only to calibrate this cohort's pace." },
+  footnote: "Complete now, before Session 2. Responses are recorded by our team and shared internally with SDAIA managers and Sameer Ul Haque to calibrate the programme." },
 
 { type: "theory", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
   eyebrow: "Built for This Cohort",

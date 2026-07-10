@@ -11,7 +11,7 @@ interface PreCourseAssessmentProps extends Base {
   intro: string;
   bullets: string[];
   duration: string;
-  formUrl: string;
+  formUrl?: string;
   qrImage?: string;
   footnote?: string;
 }
@@ -46,9 +46,7 @@ function QrPlaceholder() {
   );
 }
 
-function QrPanel({ formUrl, qrImage }: { formUrl: string; qrImage?: string }) {
-  const displayUrl = formUrl.replace(/^https?:\/\//, "");
-
+function QrPanel({ formUrl, qrImage }: { formUrl?: string; qrImage?: string }) {
   return (
     <div className="flex flex-col items-center">
       {qrImage ? (
@@ -63,9 +61,11 @@ function QrPanel({ formUrl, qrImage }: { formUrl: string; qrImage?: string }) {
       <p className="mt-s4 font-display text-cardtitle font-semibold text-nv">
         Scan with your phone camera
       </p>
-      <p className="mt-s2 max-w-[320px] break-all text-center font-mono text-small text-t3">
-        {displayUrl}
-      </p>
+      {formUrl && (
+        <p className="mt-s2 max-w-[320px] break-all text-center font-mono text-small text-t3">
+          {formUrl.replace(/^https?:\/\//, "")}
+        </p>
+      )}
     </div>
   );
 }
