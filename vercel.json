@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/download-pdf", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/UX-Masterclass-Deck.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"UX-Masterclass-Riyadh-2026.pdf\""
+        }
+      ]
+    }
+  ]
+}
