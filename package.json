@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/verify-pdf.mjs",
-    "build:local": "npm run build && npm run export:pdf",
+    "build:local": "npm run build && npm run export:pdf && npm run export:takeaways",
     "export:pdf": "playwright install chromium && node scripts/export-pdf.mjs",
+    "export:takeaways": "playwright install chromium && node scripts/export-takeaway-pdfs.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

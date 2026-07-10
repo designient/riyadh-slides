@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/download-pdf", "destination": "/index.html" }
+    { "source": "/download-pdf", "destination": "/index.html" },
+    { "source": "/takeaways", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -9,6 +10,51 @@
         {
           "key": "Content-Disposition",
           "value": "attachment; filename=\"UX-Masterclass-Riyadh-2026.pdf\""
+        }
+      ]
+    },
+    {
+      "source": "/takeaways/day-1-discovery-kit.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Day-1-Discovery-Heuristics-Kit.pdf\""
+        }
+      ]
+    },
+    {
+      "source": "/takeaways/day-2-research-kit.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Day-2-Research-AI-Synthesis-Kit.pdf\""
+        }
+      ]
+    },
+    {
+      "source": "/takeaways/day-3-design-system-kit.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Day-3-Design-System-Privacy-Kit.pdf\""
+        }
+      ]
+    },
+    {
+      "source": "/takeaways/day-4-responsible-design-kit.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Day-4-Responsible-Design-Kit.pdf\""
+        }
+      ]
+    },
+    {
+      "source": "/takeaways/day-5-portfolio-kit.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Day-5-Handoff-Portfolio-Kit.pdf\""
         }
       ]
     }

@@ -1,43 +1,36 @@
-import { appendFileSync, existsSync, statSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const root = join(__dirname, "..");
-const pdfPath = join(root, "public", "UX-Masterclass-Deck.pdf");
-const logPath = join(root, ".cursor", "debug-02ec83.log");
 
-function debugLog(message, data, hypothesisId) {
-  const entry = {
-    sessionId: "02ec83",
-    runId: process.env.DEBUG_RUN_ID ?? "verify",
-    hypothesisId,
-    location: "scripts/verify-pdf.mjs",
-    message,
-    data,
-    timestamp: Date.now(),
-  };
-  // #region agent log
-  try {
-    appendFileSync(logPath, `${JSON.stringify(entry)}\n`);
-  } catch {
-    /* ignore if log dir missing */
+const requiredPdfs = [
+  { path: join(root, "public", "UX-Masterclass-Deck.pdf"), label: "Main deck PDF" },
+  { path: join(root, "public", "takeaways", "day-1-discovery-kit.pdf"), label: "Day 1 takeaway" },
+  { path: join(root, "public", "takeaways", "day-2-research-kit.pdf"), label: "Day 2 takeaway" },
+  { path: join(root, "public", "takeaways", "day-3-design-system-kit.pdf"), label: "Day 3 takeaway" },
+  { path: join(root, "public", "takeaways", "day-4-responsible-design-kit.pdf"), label: "Day 4 takeaway" },
+  { path: join(root, "public", "takeaways", "day-5-portfolio-kit.pdf"), label: "Day 5 takeaway" },
+];
+
+let failed = false;
+
+for (const pdf of requiredPdfs) {
+  const exists = existsSync(pdf.path);
+  const size = exists ? statSync(pdf.path).size : 0;
+
+  if (!exists || size < 10_000) {
+    console.error(`Missing or too small: ${pdf.label} (${pdf.path})`);
+    failed = true;
+  } else {
+    console.log(`PDF ok: ${pdf.label} (${(size / 1024).toFixed(0)} KB)`);
   }
-  // #endregion
 }
 
-const exists = existsSync(pdfPath);
-const size = exists ? statSync(pdfPath).size : 0;
-
-debugLog("PDF verification check", { pdfPath, exists, sizeBytes: size }, "A");
-
-if (!exists || size < 1_000_000) {
-  console.error(
-    "Missing public/UX-Masterclass-Deck.pdf — run `npm run build:local` locally to generate it before deploying.",
-  );
-  debugLog("PDF verification failed", { exists, sizeBytes: size }, "A");
+if (failed) {
+  console.error("\nRun `npm run build:local` locally to generate all PDFs before deploying.");
   process.exit(1);
 }
 
-console.log(`PDF ok: ${pdfPath} (${(size / 1024 / 1024).toFixed(1)} MB)`);
-debugLog("PDF verification passed", { sizeBytes: size }, "A");
+console.log(`\nAll ${requiredPdfs.length} PDFs verified.`);

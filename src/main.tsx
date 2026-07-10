@@ -9,12 +9,25 @@ import "@fontsource/inter/700.css";
 import "./index.css";
 import App from "./App.tsx";
 import { DownloadPdf } from "./DownloadPdf.tsx";
+import { Takeaways } from "./Takeaways.tsx";
+import { TakeawayPrint } from "./takeaways/TakeawayPrint.tsx";
+import { isTakeawayDayId } from "./takeaways/content";
 
-const isDownloadPdf =
-  window.location.pathname.replace(/\/$/, "") === "/download-pdf";
+const path = window.location.pathname.replace(/\/$/, "");
+const params = new URLSearchParams(window.location.search);
+const takeawayPrint = params.get("takeaway-print");
+
+function Root() {
+  if (takeawayPrint && isTakeawayDayId(takeawayPrint)) {
+    return <TakeawayPrint dayId={takeawayPrint} />;
+  }
+  if (path === "/download-pdf") return <DownloadPdf />;
+  if (path === "/takeaways") return <Takeaways />;
+  return <App />;
+}
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {isDownloadPdf ? <DownloadPdf /> : <App />}
+    <Root />
   </StrictMode>,
 );
