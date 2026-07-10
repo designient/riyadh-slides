@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
+import { AUTH_STORAGE_KEY, CORRECT_PASSWORD, syncAuthCookie } from "./auth";
 
-const CORRECT_PASSWORD = "Riyadh@ux2026";
-export const AUTH_STORAGE_KEY = "uxmc-authenticated";
+export { AUTH_STORAGE_KEY } from "./auth";
 
 interface PasswordGateProps {
   onSuccess: () => void;
@@ -15,6 +15,7 @@ export function PasswordGate({ onSuccess }: PasswordGateProps) {
     e.preventDefault();
     if (value === CORRECT_PASSWORD) {
       sessionStorage.setItem(AUTH_STORAGE_KEY, "1");
+      syncAuthCookie();
       onSuccess();
     } else {
       setError(true);

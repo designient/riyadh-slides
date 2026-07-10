@@ -4,6 +4,7 @@ import { deck } from "./deck/content";
 import type { DeckSlide } from "./deck/types";
 import { SlideRenderer } from "./deck/SlideRenderer";
 import { AUTH_STORAGE_KEY, PasswordGate } from "./deck/PasswordGate";
+import { syncAuthCookie } from "./deck/auth";
 
 function useQueryParams() {
   return useMemo(() => new URLSearchParams(window.location.search), []);
@@ -57,6 +58,10 @@ export default function App() {
       document.documentElement.requestFullscreen().catch(() => {});
     }
   }, []);
+
+  useEffect(() => {
+    if (authenticated && !printMode) syncAuthCookie();
+  }, [authenticated, printMode]);
 
   useEffect(() => {
     if (printMode) return;

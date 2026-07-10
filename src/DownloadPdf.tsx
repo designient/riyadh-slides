@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { AUTH_STORAGE_KEY, PasswordGate } from "./deck/PasswordGate";
+import { syncAuthCookie } from "./deck/auth";
 
 const PDF_PATH = "/UX-Masterclass-Deck.pdf";
 const PDF_FILENAME = "UX-Masterclass-Riyadh-2026.pdf";
@@ -13,16 +15,17 @@ function triggerDownload() {
   link.remove();
 }
 
-export function DownloadPdf() {
+function DownloadPdfContent() {
   const [started, setStarted] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    syncAuthCookie();
     let cancelled = false;
 
     async function startDownload() {
       try {
-        const response = await fetch(PDF_PATH, { method: "HEAD" });
+        const response = await fetch(PDF_PATH, { method: "HEAD", credentials: "same-origin" });
         if (!response.ok) throw new Error("PDF not found");
         if (cancelled) return;
         triggerDownload();
@@ -84,4 +87,16 @@ export function DownloadPdf() {
       </div>
     </div>
   );
+}
+
+export function DownloadPdf() {
+  const [authenticated, setAuthenticated] = useState(
+    () => sessionStorage.getItem(AUTH_STORAGE_KEY) === "1",
+  );
+
+  if (!authenticated) {
+    return <PasswordGate onSuccess={() => setAuthenticated(true)} />;
+  }
+
+  return <DownloadPdfContent />;
 }
