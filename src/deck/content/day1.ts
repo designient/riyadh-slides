@@ -8,15 +8,14 @@ export const day1: Slide[] = [
   title: "Foundations · Heuristics\n+ FigJam Discovery",
   theme: "Calibrate the cohort. Frame the problem. Then design.",
   sessions: [
-    "Welcome · Orientation + Calibration  (opens the morning)",
-    "S1 · What is UX Design?  9:00 - 10:30",
-    "S2 · UX Principles + Heuristics  10:45 - 12:15",
-    "S3 · Introduction to FigJam  1:00 - 2:15",
-    "S4 · FigJam Workshop + Responsible Threads  2:15 - 3:00",
+    "S1 · Welcome · Orientation + Calibration  9:00 - 9:45",
+    "S2 · What is UX Design?  9:45 - 10:45",
+    "S3 · UX Principles + Heuristics  11:00 - 12:30",
+    "S4 · FigJam Intro + Workshop  1:00 - 3:00",
   ] },
 
 // ══ DAY 1 · WELCOME & ORIENTATION (7) ═══════════════════════════
-{ type: "cover", day: 1, session: 1, time: "9:00 - 3:00",
+{ type: "cover", day: 1, session: 1, time: "9:00 - 9:45",
   title: "Welcome to the\n{hl}UX Masterclass{/hl}",
   subtitle: "Riyadh, July 2026 · Five days of practitioner-focused UX" },
 
@@ -126,16 +125,16 @@ export const day1: Slide[] = [
   ],
   footnote: "Dot-vote in FigJam now · one topic wins · all discovery, research, Figma work, accessibility audit, and capstone use this shared brief" },
 
-// ══ DAY 1 · SESSION 1 · What is UX Design? (13) ══════════════════
-{ type: "cover", day: 1, session: 1, time: "9:00 - 10:30",
+// ══ DAY 1 · SESSION 2 · What is UX Design? (13) ══════════════════
+{ type: "cover", day: 1, session: 2, time: "9:45 - 10:45",
   title: "What is\n{hl}UX Design?{/hl}",
   subtitle: "Foundations · Roles · The Design Process" },
 
-{ type: "statement", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "statement", day:1, session:2, sessionTitle:"What is UX Design?",
   quote: "\"Design is not what it looks like.\n{hl}Design is how it works.{/hl}\"",
   attribution: "Steve Jobs · Every concept this session leads back to this." },
 
-{ type: "theory", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "theory", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"Defining the Discipline", title:"What UX Actually Is",
   layout:"bullets",
   body:[
@@ -146,7 +145,7 @@ export const day1: Slide[] = [
     "<b>UX is not a deliverable.</b> Wireframes are deliverables. UX is the outcome. The distinction matters constantly.",
   ] },
 
-{ type: "theory", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "theory", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"The Foundation", title:"Three Things Every Good Experience Must Be",
   layout:"cards3",
   body:[
@@ -159,7 +158,7 @@ export const day1: Slide[] = [
   ],
   footnote:"Peter Morville's full honeycomb adds Findable, Accessible, Credible, Valuable. These three are the irreducible core." },
 
-{ type: "framework", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "framework", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"The Most Common Confusion", title:"UX vs UI · Where One Ends and the Other Begins",
   kind:"compare",
   data:{
@@ -173,7 +172,7 @@ export const day1: Slide[] = [
   },
   note:"You can have great UI and terrible UX. The interior can look beautiful while the floor plan makes no sense." },
 
-{ type: "example", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "example", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"In Practice", title:"The Same Checkout Flow · Two Very Different Experiences",
   mode:"split",
   panels:{
@@ -190,7 +189,7 @@ export const day1: Slide[] = [
   },
   takeaway:"Same product. Same technology. Completely different experience, because someone asked what the user needs at each step." },
 
-{ type: "framework", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "framework", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"The Framework", title:"The Double Diamond · Diverge to Converge, Twice",
   kind:"diagram", data:{ diagram:"doubleDiamond",
     labels:[
@@ -200,7 +199,7 @@ export const day1: Slide[] = [
       { t:"Deliver", d:"Test, refine, and ship the best solution. Then loop back with new learnings." },
     ] } },
 
-{ type: "framework", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "framework", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"What You'll Build This Week", title:"The Case Study Thread · Day by Day",
   kind:"diagram", data:{ diagram:"weekArc",
     nodes:[
@@ -212,16 +211,16 @@ export const day1: Slide[] = [
     ] },
   note:"Every exercise this week feeds one deliverable. You leave with a complete, portfolio-ready UX case study." },
 
-{ type: "statement", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "statement", day:1, session:2, sessionTitle:"What is UX Design?",
   quote: "\"{hl}Good design is invisible.{/hl}\nBad design is everywhere.\"",
   attribution: "Widely attributed · Your job this week is to learn to see what's invisible." },
 
-{ type: "discussion", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "discussion", day:1, session:2, sessionTitle:"What is UX Design?",
   label:"Open Discussion",
   question:"Think of the last digital experience that {hl}frustrated{/hl} you.\nWhat broke down?\nWhat would good have looked like?",
   hint:"2 minutes with the person next to you. Then we hear three responses." },
 
-{ type: "theory", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "theory", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"The Week Ahead", title:"What This Week Builds Toward",
   layout:"cards2",
   body:[
@@ -232,7 +231,7 @@ export const day1: Slide[] = [
   ],
   footnote:"The throughline across all five days is one case study, built session by session, grounded in real research." },
 
-{ type: "reference", day:1, session:1, sessionTitle:"What is UX Design?",
+{ type: "reference", day:1, session:2, sessionTitle:"What is UX Design?",
   eyebrow:"Reference · Keep This Open", title:"UX Roles + Tools · Your Field Map",
   head:["Role","Primary Responsibility","Core Tools in This Training"],
   rows:[
@@ -246,25 +245,25 @@ export const day1: Slide[] = [
   ],
   note:"Every tool in the third column is used in this training. Figma and FigJam open this afternoon." },
 
-{ type: "wrap", day:1, session:1, sessionTitle:"What is UX Design?",
-  eyebrow:"Session 1 Complete", title:"Three Things to Take Into S2",
+{ type: "wrap", day:1, session:2, sessionTitle:"What is UX Design?",
+  eyebrow:"Session 2 Complete", title:"Three Things to Take Into S3",
   cards:[
     { n:"01", t:"UX is the whole experience", b:"Research, logic, emotion, and visual design are all part of it. The screen is just where it surfaces. It starts before the first tap." },
     { n:"02", t:"The process is circular", b:"There is no finish line, only the next research question informed by what you just learned. Testing begins the next round." },
     { n:"03", t:"Every role in this room does UX work", b:"The title is secondary. Anyone whose decisions affect a user's experience is doing UX. This week makes that work intentional." },
   ],
-  next:"S2 · UX Principles + Heuristics (10:45) · The evaluative framework you'll apply to any product in under 30 minutes." },
+  next:"S3 · UX Principles + Heuristics (11:00) · The evaluative framework you'll apply to any product in under 30 minutes." },
 
-// ══ DAY 1 · SESSION 2 · UX Principles + Heuristics (9) ═══════════
-{ type: "cover", day:1, session:2, time:"10:45 - 12:15",
+// ══ DAY 1 · SESSION 3 · UX Principles + Heuristics (9) ═══════════
+{ type: "cover", day:1, session:3, time:"11:00 - 12:30",
   title:"UX Principles\n+ {hl}Heuristics{/hl}",
   subtitle:"User-Centered Design · Nielsen's 10 · Running an Audit" },
 
-{ type:"statement", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"statement", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   quote:"\"Good design is invisible.\n{hl}The rules that make it invisible are not.{/hl}\"",
   attribution:"This session makes the rules explicit and usable." },
 
-{ type:"theory", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"theory", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   eyebrow:"The Core Philosophy", title:"What is User-Centered Design?",
   layout:"bullets",
   body:[
@@ -275,7 +274,7 @@ export const day1: Slide[] = [
     "UCD is a posture before it is a process: <b>assume you are not the user</b>, and go find out who is.",
   ] },
 
-{ type:"theory", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"theory", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   eyebrow:"The Fastest Evaluation Method", title:"Introduction to Heuristic Evaluation",
   layout:"split",
   body:{
@@ -288,7 +287,7 @@ export const day1: Slide[] = [
       b:"Heuristics are the single highest-leverage skill a non-designer can learn. By the end of this session, anyone in this room can look at any product and name specifically what is wrong with it and why." },
   } },
 
-{ type:"reference", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"reference", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   eyebrow:"The Canon", title:"Nielsen's 10 Usability Heuristics",
   head:["#","Heuristic","What It Means"],
   rows:[
@@ -304,7 +303,7 @@ export const day1: Slide[] = [
     ["10","Help and documentation","When help is needed, make it findable and task-focused."],
   ] },
 
-{ type:"example", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"example", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   eyebrow:"Heuristics In Action", title:"Three Heuristics · One Checkout Flow",
   mode:"annotated",
   panels:[
@@ -314,7 +313,7 @@ export const day1: Slide[] = [
   ],
   takeaway:"Most everyday frustration traces to a small set of heuristics. Name the principle, name the fix." },
 
-{ type:"theory", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
+{ type:"theory", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
   eyebrow:"The Method", title:"Running a Heuristic Audit",
   layout:"bullets",
   body:[
@@ -325,27 +324,27 @@ export const day1: Slide[] = [
     "<b>Step 5 · Recommend a fix</b> for each issue. An audit without recommendations is a complaint, not a deliverable.",
   ] },
 
-{ type:"exercise", day:1, session:2, tool:"figjam",
+{ type:"exercise", day:1, session:3, tool:"figjam",
   task:"Run a {hl}Heuristic Audit{/hl}",
   sub:"Pick one app you use daily. Score it against 3 heuristics of your choice.",
   minutes:20,
   deliverable:"For each: the heuristic, the issue, a severity 0 to 4, and your recommended fix, on FigJam stickies." },
 
-{ type:"wrap", day:1, session:2, sessionTitle:"UX Principles + Heuristics",
-  eyebrow:"Session 2 Complete", title:"Three Things to Take Into S3",
+{ type:"wrap", day:1, session:3, sessionTitle:"UX Principles + Heuristics",
+  eyebrow:"Session 3 Complete", title:"Three Things to Take Into S4",
   cards:[
     { n:"01", t:"UCD is a posture, then a process", b:"Assume you are not the user, then go find out who is. Evidence over opinion, in iterative loops, never one straight line." },
     { n:"02", t:"Heuristics are your fastest tool", b:"Ten principles let anyone audit any product in under an hour, with no users and no budget. The highest-leverage skill here." },
     { n:"03", t:"An audit ends in recommendations", b:"Logging problems is half the job. Severity ratings and proposed fixes turn a complaint into a deliverable a team can act on." },
   ],
-  next:"S3 · Introduction to FigJam (1:00) · Set up the canvas your whole week's research will live on." },
+  next:"S4 · Introduction to FigJam (1:00) · Set up the canvas your whole week's research will live on." },
 
-// ══ DAY 1 · SESSION 3 · Introduction to FigJam (5) ═══════════════
-{ type:"cover", day:1, session:3, time:"1:00 - 2:15",
+// ══ DAY 1 · SESSION 4 · Introduction to FigJam (5) ═══════════════
+{ type:"cover", day:1, session:4, time:"1:00 - 2:15",
   title:"Introduction to\n{hl}FigJam{/hl}",
   subtitle:"Workshop Canvas · POV Framing · Setup" },
 
-{ type:"theory", day:1, session:3, sessionTitle:"Introduction to FigJam",
+{ type:"theory", day:1, session:4, sessionTitle:"Introduction to FigJam",
   eyebrow:"Orientation", title:"What FigJam Is, and Isn't",
   layout:"cards2",
   body:[
@@ -354,14 +353,14 @@ export const day1: Slide[] = [
   ],
   footnote:"Same company, same account, two tools. This afternoon is FigJam. Day 3 we move into Figma." },
 
-{ type:"toolOpen", day:1, session:3, sessionTitle:"Introduction to FigJam",
+{ type:"toolOpen", day:1, session:4, sessionTitle:"Introduction to FigJam",
   eyebrow:"Hands On", title:"Let's Open FigJam",
   tool:"figjam",
   instruction:"Create your first FigJam file",
   sub:"Name it: [Your Name] · Day 1 Workshop. This is the canvas your research lives on.",
-  need:["A Figma account (free)","The shared workshop link","Your audit notes from S2"] },
+  need:["A Figma account (free)","The shared workshop link","Your audit notes from S3"] },
 
-{ type:"theory", day:1, session:3, sessionTitle:"Introduction to FigJam",
+{ type:"theory", day:1, session:4, sessionTitle:"Introduction to FigJam",
   eyebrow:"Framing the Problem", title:"Working with POV Statements",
   layout:"bullets",
   body:[
@@ -371,16 +370,16 @@ export const day1: Slide[] = [
     "A sharp POV becomes the bridge from research into ideation. It is what you'll build your How Might We questions on in S4 and Day 2.",
   ] },
 
-{ type:"wrap", day:1, session:3, sessionTitle:"Introduction to FigJam",
-  eyebrow:"Session 3 Complete", title:"Canvas Set Up · Into the Workshop",
+{ type:"wrap", day:1, session:4, sessionTitle:"Introduction to FigJam",
+  eyebrow:"Session 4 · Setup Complete", title:"Canvas Set Up · Into the Workshop",
   cards:[
     { n:"01", t:"You have a working canvas", b:"Your FigJam file is created, named, and shared. Ready for affinity mapping and persona work." },
     { n:"02", t:"FigJam is for thinking fast", b:"Lo-fi, collaborative, real-time. The place ideas are generated and structured before they are designed in Figma." },
     { n:"03", t:"A POV frames the problem", b:"User, need, insight. The statement that turns research into a problem worth solving and feeds the next exercise." },
   ],
-  next:"S4 · FigJam Workshop (2:15) · Slides stop. You work. Affinity mapping, card sorting, and your first persona." },
+  next:"Workshop continues (2:15) · Slides stop. You work. Affinity mapping, card sorting, and your first persona." },
 
-// ══ DAY 1 · SESSION 4 · FigJam Workshop (8) ══════════════════════
+// ══ DAY 1 · SESSION 4 · FigJam Workshop (continues) (8) ══════════════════════
 { type:"cover", day:1, session:4, time:"2:15 - 3:00",
   title:"FigJam\n{hl}Workshop{/hl}",
   subtitle:"Affinity Mapping · Card Sorting · First Persona" },
