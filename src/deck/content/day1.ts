@@ -5,13 +5,14 @@ export const day1: Slide[] = [
 // ── DAY 1 DIVIDER ──────────────────────────────────────────────
 { type: "dayDivider", dayNumber: 1,
   dayLabel: "Day 1 of 5 · Riyadh, KSA · 12 July 2026",
-  title: "UX Foundations\n+ Heuristics + FigJam",
-  theme: "Understand before you design",
+  title: "Foundations · Heuristics\n+ FigJam Discovery",
+  theme: "Calibrate the cohort. Frame the problem. Then design.",
   sessions: [
+    "Welcome · Orientation + Calibration  (opens the morning)",
     "S1 · What is UX Design?  9:00 - 10:30",
     "S2 · UX Principles + Heuristics  10:45 - 12:15",
     "S3 · Introduction to FigJam  1:00 - 2:15",
-    "S4 · FigJam Workshop  2:15 - 3:00",
+    "S4 · FigJam Workshop + Responsible Threads  2:15 - 3:00",
   ] },
 
 // ══ DAY 1 · WELCOME & ORIENTATION (7) ═══════════════════════════
@@ -81,6 +82,26 @@ export const day1: Slide[] = [
       b: "Data privacy, ethics, and governance when using AI design tools — woven through the week, with a dedicated block on Day 4." },
   ],
   footnote: "This curriculum was shaped by your team's feedback: less tool teaching, more depth on accessibility and responsible AI." },
+
+{ type: "framework", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
+  eyebrow: "The Capability Shift",
+  title: "UX Designer 2030",
+  kind: "diagram",
+  data: {
+    diagram: "skillsWheel",
+    hub: "UX Designer\n2030",
+    intro: "Technical craft is the entry ticket. Translational skill is the advantage.",
+    spokes: [
+      { t: "Problem Framing", d: "Define the right citizen problem before AI answers." },
+      { t: "AI & Data Fluency", d: "Use AI as leverage — not a black box you cannot explain." },
+      { t: "Ethical Governance", d: "Privacy, bias, and human oversight in government systems." },
+      { t: "Inclusive Judgment", d: "Accessibility as a design constraint, not a checklist." },
+      { t: "Executive Storytelling", d: "Turn research into decisions stakeholders can act on." },
+      { t: "Facilitation & Alignment", d: "Run workshops that move teams, not just fill boards." },
+      { t: "Value Realization", d: "Ship outcomes — handoff, proof, and a career-ready case." },
+    ],
+  },
+  note: "AI can generate screens. Your advantage is framing, judgment, and trust." },
 
 { type: "theory", day: 1, session: 1, sessionTitle: "Welcome & Orientation",
   eyebrow: "Cohort Challenge",

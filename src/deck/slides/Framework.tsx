@@ -186,6 +186,107 @@ function WeekArcDiagram({
   );
 }
 
+function SkillsWheelDiagram({
+  hub,
+  intro,
+  spokes,
+}: {
+  hub: string;
+  intro?: string;
+  spokes: { t: string; d: string }[];
+}) {
+  const count = spokes.length;
+  const radius = 36;
+
+  return (
+    <div className="flex min-h-0 flex-1 flex-col">
+      {intro && (
+        <p className="mb-s2 shrink-0 text-center text-body text-t2">{intro}</p>
+      )}
+      <div className="relative mx-auto h-full min-h-0 w-full max-w-[1040px] flex-1">
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden
+        >
+          {spokes.map((_, i) => {
+            const angle = (i * 360) / count - 90;
+            const rad = (angle * Math.PI) / 180;
+            const x2 = 50 + radius * Math.cos(rad);
+            const y2 = 50 + radius * Math.sin(rad);
+            return (
+              <line
+                key={i}
+                x1="50"
+                y1="50"
+                x2={x2}
+                y2={y2}
+                stroke="#B8953F"
+                strokeWidth="0.35"
+                strokeOpacity="0.45"
+              />
+            );
+          })}
+          <circle
+            cx="50"
+            cy="50"
+            r="12"
+            fill="none"
+            stroke="#B8953F"
+            strokeWidth="0.4"
+            strokeOpacity="0.35"
+          />
+        </svg>
+
+        <div className="absolute left-1/2 top-1/2 z-10 flex h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-nv px-s3 text-center shadow-cardlg">
+          <span className="font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-gl">
+            Capability
+          </span>
+          <span className="mt-s1 whitespace-pre-line font-display text-[20px] font-bold leading-tight text-white">
+            {hub}
+          </span>
+        </div>
+
+        {spokes.map((spoke, i) => {
+          const angle = (i * 360) / count - 90;
+          const rad = (angle * Math.PI) / 180;
+          const x = 50 + radius * Math.cos(rad);
+          const y = 50 + radius * Math.sin(rad);
+          const navy = i % 2 === 0;
+
+          return (
+            <div
+              key={i}
+              className={`absolute z-10 w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-card px-s3 py-s2 shadow-card ${
+                navy
+                  ? "bg-nv text-white"
+                  : "border border-go/30 bg-wh text-nv"
+              }`}
+              style={{ left: `${x}%`, top: `${y}%` }}
+            >
+              <h4
+                className={`font-display text-[17px] font-bold leading-tight ${
+                  navy ? "text-gl" : "text-nv"
+                }`}
+              >
+                {spoke.t}
+              </h4>
+              <p
+                className={`mt-1 text-[14px] leading-snug ${
+                  navy ? "text-white/85" : "text-t2"
+                }`}
+              >
+                {spoke.d}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function Framework({
   day,
   session,
@@ -225,6 +326,15 @@ export function Framework({
           return (
             <WeekArcDiagram
               nodes={d.nodes as { n: string; day: string; t: string; d: string }[]}
+            />
+          );
+        }
+        if (d.diagram === "skillsWheel") {
+          return (
+            <SkillsWheelDiagram
+              hub={(d.hub as string) ?? "UX Designer 2030"}
+              intro={d.intro as string | undefined}
+              spokes={d.spokes as { t: string; d: string }[]}
             />
           );
         }

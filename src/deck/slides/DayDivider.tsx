@@ -34,7 +34,7 @@ export function DayDivider({
           {highlightMultiline(title, "text-white", "text-gl")}
         </h1>
         <p className="mt-s4 text-lead italic text-white">{theme}</p>
-        <div className="mt-s8 flex flex-col gap-s3">
+        <div className={`mt-s8 flex flex-col ${sessions.length > 4 ? "gap-s2" : "gap-s3"}`}>
           {sessions.map((s, i) => (
             <div key={i} className="flex items-center gap-s4">
               <span className="h-[2px] w-[30px] bg-go" />
